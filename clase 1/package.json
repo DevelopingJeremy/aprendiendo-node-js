@@ -1,0 +1,28 @@
+{
+  "name": "clase-1",
+  "version": "1.0.0",
+  "description": "Curso de Node visto por midudev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevelopingJeremy/aprendiendo-node-js.git"
+  },
+  "keywords": [
+    "node",
+    "curso",
+    "midudev",
+    "aprendernode"
+  ],
+  "author": "Jeremy Andrey Quesada Garro - @DevelopingJeremy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevelopingJeremy/aprendiendo-node-js/issues"
+  },
+  "homepage": "https://github.com/DevelopingJeremy/aprendiendo-node-js#readme",
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  }
+}
