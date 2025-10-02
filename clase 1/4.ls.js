@@ -27,6 +27,7 @@ const fs = require('node:fs').promises
 // ls advanced
 
 const path = require('node:path');
+const pc = require('picocolors');
 
 const folder = process.argv[2] ?? '.'
 
@@ -36,7 +37,7 @@ async function ls (folder) {
     try {
         files = await fs.readdir(folder);
     } catch (err) {
-        console.error("Error al leer el directorio", folder, err);
+        console.error(pc.red("Error al leer el directorio", folder));
         process.exit(1)
     }
 
@@ -46,7 +47,7 @@ async function ls (folder) {
         try {
             stats = await fs.stat(pathFile)
         } catch {
-            console.error(`Error al obtener estadisticas de ${pathFile}`);
+            console.error(pc.red(`Error al obtener estadisticas de ${pathFile}`));
             process.exit(1)
         }
 
