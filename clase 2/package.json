@@ -5,11 +5,16 @@
   "main": "1.http.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon 1.http.js"
+    "dev:1": "nodemon 1.http.js",
+    "dev:2": "PORT=3000 node --watch 2.routing.js",
+    "dev:3": "PORT=3000 node --watch 3.express.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "5.1.0"
   }
 }
