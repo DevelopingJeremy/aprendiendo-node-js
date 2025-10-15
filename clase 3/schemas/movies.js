@@ -9,13 +9,19 @@ const movieSchema = z.object({
     director: z.string(),
     duration: z.number().int().positive(),
     genre: z.array(z.enum(['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Romance', 'Sci-Fi', 'Crime', 'Romance'])).min(1),
-    rate: z.number().min(0).max(10)
+    rate: z.number().min(0).max(10).default(0)
 });
 
 function validateMovie(object) {
     return movieSchema.safeParse(object);
 }
 
+function validatePartialMovie (object) {
+    // partial() puede servirnos para solo validar lo que se pase, como cuando usamos PATCH
+    return movieSchema.partial().safeParse(object)
+}
+
 module.exports = {
-    validateMovie
+    validateMovie,
+    validatePartialMovie
 };
