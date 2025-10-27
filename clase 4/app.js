@@ -1,25 +1,15 @@
-import express, { json } from 'express';
-const app = express();
-const PORT = process.env.PORT || 3000;
-import { readJSON } from './utils.js';
-import {moviesRouter} from './routes/movies.js';
-import { corsMiddleware } from './middlewares/cors.js';
+import express, { json } from 'express' // require -> commonJS
+import { moviesRouter } from './routes/movies.js'
+import { corsMiddleware } from './middlewares/cors.js'
 
-// Como leer un JSON en ESM
-// import fs from 'node:fs';
-// const movies = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'));
+const app = express()
+app.use(json())
+app.disable('x-powered-by')
 
-// Otra manera
-// import movies from './movies.json' with { type: 'json' };
+app.use('/movies', moviesRouter)
 
-const movies = readJSON('./movies.json');
-app.use(json());
-app.use(corsMiddleware());
-app.disable('x-powered-by');
-
-// Peliculas
-app.use('/movies', moviesRouter);
+const PORT = process.env.PORT ?? 1234
 
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
+  console.log(`server listening on port http://localhost:${PORT}`)
+})
