@@ -13,3 +13,5 @@
 [Clase 5](./clase%205/)
 
 [Clase 6](./clase%206/)
+
+[Clase 7](./clase%207/)
